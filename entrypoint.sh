@@ -1,5 +1,2 @@
 #!/bin/sh -l
-
-echo "Hello $1"
-time=$(date)
-echo "::set-output name=time::$time"
+scripts/semver_tag.sh
