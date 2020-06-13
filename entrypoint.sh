@@ -1,5 +1,5 @@
 #!/bin/sh
-#!/bin/bash -x 
+
 function semver() {
     set -o errexit -o nounset -o pipefail
     
