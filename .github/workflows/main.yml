@@ -3,8 +3,8 @@ on: [push]
 jobs:
   semver-action:
     runs-on: ubuntu-latest
-    name: bump version
+    name: semver-action
     steps:
       - name: semver-action step
-        id: hello
+        id: semver-action id
         uses: stugit/semver-action@master
