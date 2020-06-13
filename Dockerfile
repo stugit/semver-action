@@ -2,14 +2,6 @@
 FROM alpine:3.10
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
-add scripts /scripts
-
-COPY scripts/semver /scripts/semver
-RUN ["chmod", "+x", "/scripts/semver"]
-
-COPY scripts/semver_tag.sh /scripts/semver_tag.sh
-RUN ["chmod", "+x", "/scripts/semver_tag.sh"]
-
 COPY entrypoint.sh /entrypoint.sh
 RUN ["chmod", "+x", "/entrypoint.sh"]
 
