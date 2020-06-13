@@ -1,0 +1,10 @@
+on: [push]
+
+jobs:
+  semver-action:
+    runs-on: ubuntu-latest
+    name: bump version
+    steps:
+      - name: semver-action step
+        id: hello
+        uses: stugit/semver-action@master
