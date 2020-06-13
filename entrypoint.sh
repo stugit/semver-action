@@ -1,3 +1,3 @@
 #!/bin/sh -l
-find /github/workspace/*
+env
 /scripts/semver_tag.sh
