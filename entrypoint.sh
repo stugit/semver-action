@@ -297,7 +297,9 @@ if [[ "$(git show -n1 --merges --oneline | grep -c '/feature/')" -ge 1 ]]; then
 fi
 echo "default_semvar_bump: ${default_semvar_bump}"
 
+echo "source: ${source}"
 cd ${source}
+echo "pwd: $(pwd)"
 
 pre_release="true"
 IFS=',' read -ra branch <<< "$release_branches"
