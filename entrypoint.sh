@@ -331,10 +331,10 @@ tag=$(git for-each-ref --sort=-v:refname --count=1 --format '%(refname)' refs/ta
 if [[ ! -z $tag ]];
 then
   tag_commit=$(git rev-list -n 1 $tag)
-
-  # get current commit hash for tag
-  commit=$(git rev-parse HEAD)
 fi
+
+# get current commit hash for tag
+commit=$(git rev-parse HEAD)
 
 if [ "$tag_commit" == "$commit" ]; then
     echo "No new commits since previous tag. Skipping..."
