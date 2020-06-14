@@ -328,10 +328,13 @@ git fetch --tags
 # get latest tag that looks like a semver (with or without v)
 tag=$(git for-each-ref --sort=-v:refname --count=1 --format '%(refname)' refs/tags/[0-9]*.[0-9]*.[0-9]* refs/tags/v[0-9]*.[0-9]*.[0-9]* | cut -d / -f 3-)
 
-tag_commit=$(git rev-list -n 1 $tag)
+if [[ ! -z $tag ]];
+then
+  tag_commit=$(git rev-list -n 1 $tag)
 
-# get current commit hash for tag
-commit=$(git rev-parse HEAD)
+  # get current commit hash for tag
+  commit=$(git rev-parse HEAD)
+fi
 
 if [ "$tag_commit" == "$commit" ]; then
     echo "No new commits since previous tag. Skipping..."
