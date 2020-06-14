@@ -11,6 +11,9 @@ inputs:
   DEFAULT_BUMP:
     description: 'major, minor or patch, the default is patch.'
     required: false
+  WITH_V: 
+    description: 'With "v" prefix.'
+    required: false
   DRY_RUN: 
     description: 'Dry run.'
     required: false
