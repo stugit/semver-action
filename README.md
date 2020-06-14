@@ -1,21 +1,23 @@
-# Hello world docker action
+# semver docker action
 
-This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
+This action finds the most recent semver tag, and bumps it up depending on the tag #major, #minor, or #patch in the merge comment.
+Without the tag it will bump up just the patch number.
 
 ## Inputs
 
-### `who-to-greet`
-
-**Required** The name of the person to greet. Default `"World"`.
+ #major
+ #minor
+ #patch
 
 ## Outputs
 
-### `time`
+### `tag`
 
-The time we greeted you.
+v1.0.1 or 1.0.1
 
 ## Example usage
 
-uses: actions/hello-world-docker-action@v1
+uses: stugit/semver-action@v1
 with:
-  who-to-greet: 'Mona the Octocat'
+  source: 'name-of-the-repo'
+  
