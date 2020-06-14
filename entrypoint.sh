@@ -289,8 +289,8 @@ function semver() {
 
 
 # MAIN
-
 # config
+GITHUB_TOKEN=${INPUT_GITHUB_TOKEN}
 default_semvar_bump=${INPUT_DEFAULT_BUMP:-patch}
 with_v=${INPUT_WITH_V:-false}
 release_branches=${INPUT_RELEASE_BRANCHES:-master}
