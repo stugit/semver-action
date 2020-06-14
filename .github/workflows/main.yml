@@ -9,10 +9,12 @@ jobs:
     - uses: actions/checkout@v2
       with:
         repository: stugit/semver-action
+        path: "semver-action"
         fetch-depth: 0
   
 
     - uses: stugit/semver-action@master
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SOURCE: "semver-action"
         WITH_V: "true"
