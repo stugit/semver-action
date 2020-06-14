@@ -1,21 +1,63 @@
-# Hello world docker action
+# semver-action
 
-This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
+This action finds the most recent semver tag, and bumps it up depending on the tag #major, #minor, or #patch in the merge comment.
+Without the tag it will bump up the minor number.
 
 ## Inputs
 
-### `who-to-greet`
+### Merge Comment 
+ #major
+ #minor
+ #patch
+ 
+### Branch Name
+If you name your branch /feature/<branch name>, when the code is merged to master the action will bump up the minor number instead of the patch number if that is the default. 
 
-**Required** The name of the person to greet. Default `"World"`.
+### DEFAULT_BUMP
+By default the active will bump up the minor number when the code is merged to master, might be better for you to can change the default to patch, 
+e.g. 
+```
+DEFAULT_BUMP='patch'
+```
+
+### CUSTOM_TAG
+Can add a custom prefix.
+
+e.g. 
+```
+CUSTOM_TAG: 'new_prefix_'
+```
+
+### DRY_RUN
+Can add run without creating a tag.
+
+e.g. 
+```
+DRY_RUN: 'true'
+```
+
+### WITH_V
+Can add a v prefix e.g. v1.0.0 but default it's without, e.g. 1.0.0.
+
+e.g. 
+```
+WITH_V: true
+```
 
 ## Outputs
 
-### `time`
+### A git tag
 
-The time we greeted you.
+v1.0.1 or 1.0.1 or new_prefix_v1.0.1
 
 ## Example usage
 
-uses: actions/hello-world-docker-action@v1
+```
+uses: stugit/semver-action@v1
 with:
-  who-to-greet: 'Mona the Octocat'
+  source: 'name-of-the-repo'
+  DEFAULT_BUMP: 'patch'
+  RELEASE_BRANCHES: 'release1,release2'
+  CUSTOM_TAG: 'mock-'
+  DRY_RUN: true
+```

@@ -4,7 +4,18 @@ jobs:
   semver-action:
     runs-on: ubuntu-latest
     name: semver-action
+
     steps:
-      - name: semver-action step
-        id: semveractionid
+
+      - uses: actions/checkout@v2
+      with:
+        repository: stugit/semver-action
+        path: semver-action
+        fetch-depth: 0
+  
+      - name: run semver-action
         uses: stugit/semver-action@master
+          uses:
+            SOURCE: "semver-action"
+            DEFAULT_BUMP: "minor"
+            WITH_V: "true"
