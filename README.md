@@ -20,14 +20,6 @@ e.g.
 DEFAULT_BUMP='patch'
 ```
 
-### CUSTOM_TAG
-Can add a custom prefix.
-
-e.g. 
-```
-CUSTOM_TAG: 'new_prefix_'
-```
-
 ### DRY_RUN
 Can add run without creating a tag.
 
@@ -58,6 +50,5 @@ with:
   source: 'name-of-the-repo'
   DEFAULT_BUMP: 'patch'
   RELEASE_BRANCHES: 'release1,release2'
-  CUSTOM_TAG: 'mock-'
   DRY_RUN: true
 ```
