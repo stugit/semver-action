@@ -47,7 +47,7 @@ v1.0.1 or 1.0.1 or new_prefix_v1.0.1
 ```
 uses: stugit/semver-action@v1
 with:
-  source: 'name-of-the-repo'
+  SOURCE: 'some-other-repo-name'
   DEFAULT_BUMP: 'patch'
   RELEASE_BRANCHES: 'release1,release2'
   DRY_RUN: true
