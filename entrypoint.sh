@@ -300,6 +300,7 @@ dryrun=${DRY_RUN:-false}
 echo "source: ${source}"
 cd ${source}
 echo "pwd: $(pwd)"
+ls -alrt
 
 # Was the last merge a feature branch (check merge comment)
 if [[ "$(git show -n1 --merges --oneline | grep -c '/feature/')" -ge 1 ]]; then
