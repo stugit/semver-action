@@ -9,7 +9,7 @@ jobs:
     - uses: actions/checkout@v2
       with:
         repository: stugit/semver-action
-        path: "${GITHUB_WORKSPACE}/semver-action"
+        path: "semver-action"
         fetch-depth: 0
   
     - name: cd directory
