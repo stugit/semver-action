@@ -6,16 +6,14 @@ jobs:
     name: semver-action
 
     steps:
-
-      - uses: actions/checkout@v2
+    - uses: actions/checkout@v2
       with:
         repository: stugit/semver-action
         path: semver-action
         fetch-depth: 0
   
-      - name: run semver-action
-        uses: stugit/semver-action@master
-        with:
-          SOURCE: "semver-action"
-          DEFAULT_BUMP: "minor"
-          WITH_V: "true"
+    - uses: stugit/semver-action@master
+      with:
+        SOURCE: "semver-action"
+        DEFAULT_BUMP: "minor"
+        WITH_V: "true"
