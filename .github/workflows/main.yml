@@ -12,12 +12,9 @@ jobs:
         path: "semver-action"
         fetch-depth: 0
   
-    - name: cd directory
-      shell: bash
-      run: |
-        cd "${GITHUB_WORKSPACE}/semver-action"
 
     - uses: stugit/semver-action@master
       with:
+        SOURCE: "${GITHUB_WORKSPACE}/semver-action"
         DEFAULT_BUMP: "minor"
         WITH_V: "true"
