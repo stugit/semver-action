@@ -7,6 +7,7 @@ RUN ["apt", "install", "-y", "git"]
 COPY entrypoint.sh /entrypoint.sh
 RUN ["chmod", "+x", "/entrypoint.sh"]
 
+ENV GITHUB_TOKEN ${GITHUB_TOKEN}
 ENV WITH_V ${WITH_V}
 ENV RELEASE_BRANCHES ${RELEASE_BRANCHES}
 ENV SOURCE ${SOURCE}
