@@ -15,7 +15,7 @@ jobs:
   
       - name: run semver-action
         uses: stugit/semver-action@master
-          uses:
-            SOURCE: "semver-action"
-            DEFAULT_BUMP: "minor"
-            WITH_V: "true"
+        with:
+          SOURCE: "semver-action"
+          DEFAULT_BUMP: "minor"
+          WITH_V: "true"
