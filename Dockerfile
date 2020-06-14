@@ -1,7 +1,6 @@
 # Container image that runs your code
 FROM ubuntu:18.04
-RUN ["apt", "update"] 
-RUN ["apt", "install", "-y", "git"] 
+RUN apt update && apt install -y git curl jq
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
