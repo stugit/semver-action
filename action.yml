@@ -24,8 +24,8 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - SOURCE: ${{ inputs.SOURCE }}
-    - DEFAULT_DUMP: ${{ inputs.DEFAULT_BUMP }}
-    - WITH_V: ${{ inputs.WITH_V }}
-    - DRY_RUN: ${{ inputs.DRY_RUN }}
-    - RELEASE_BRANCHES: ${{ inputs.RELEASE_BRANCHES }}
+    - "SOURCE: ${{ inputs.SOURCE }}"
+    - "DEFAULT_DUMP: ${{ inputs.DEFAULT_BUMP }}"
+    - "WITH_V: ${{ inputs.WITH_V }}"
+    - "DRY_RUN: ${{ inputs.DRY_RUN }}"
+    - "RELEASE_BRANCHES: ${{ inputs.RELEASE_BRANCHES }}"
