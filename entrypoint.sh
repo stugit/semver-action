@@ -297,15 +297,15 @@ release_branches=${RELEASE_BRANCHES:-master}
 source=${SOURCE:-.}
 dryrun=${DRY_RUN:-false}
 
+echo "source: ${source}"
+cd ${source}
+echo "pwd: $(pwd)"
+
 # Was the last merge a feature branch (check merge comment)
 if [[ "$(git show -n1 --merges --oneline | grep -c '/feature/')" -ge 1 ]]; then
     default_semvar_bump=minor
 fi
 echo "default_semvar_bump: ${default_semvar_bump}"
-
-echo "source: ${source}"
-cd ${source}
-echo "pwd: $(pwd)"
 
 pre_release="true"
 IFS=',' read -ra branch <<< "$release_branches"
