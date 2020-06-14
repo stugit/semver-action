@@ -36,6 +36,12 @@ e.g.
 WITH_V: true
 ```
 
+## RELEASE_BRANCHES
+If you use release branches, instead of master.
+```
+RELEASE_BRANCHES: 'release1,release2'
+```
+
 ## Outputs
 
 ### A git tag
