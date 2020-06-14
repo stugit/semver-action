@@ -1,4 +1,4 @@
-# semver docker action
+# semver-action
 
 This action finds the most recent semver tag, and bumps it up depending on the tag #major, #minor, or #patch in the merge comment.
 Without the tag it will bump up just the patch number.
