@@ -1,4 +1,5 @@
 #!/bin/bash -x
+echo Your container args are: "$@"
 
 function semver() {
     set -o errexit -o nounset -o pipefail
