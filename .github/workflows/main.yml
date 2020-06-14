@@ -9,11 +9,11 @@ jobs:
     - uses: actions/checkout@v2
       with:
         repository: stugit/semver-action
-        path: semver-action
+        path: "${GITHUB_WORKSPACE}/semver-action"
         fetch-depth: 0
   
     - uses: stugit/semver-action@master
       with:
-        SOURCE: "semver-action"
+        SOURCE: "${GITHUB_WORKSPACE}/semver-action"
         DEFAULT_BUMP: "minor"
         WITH_V: "true"
