@@ -17,7 +17,9 @@ v1.0.1 or 1.0.1
 
 ## Example usage
 
+```
 uses: stugit/semver-action@v1
 with:
   source: 'name-of-the-repo'
   
+```
