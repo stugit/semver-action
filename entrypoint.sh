@@ -285,15 +285,11 @@ function semver() {
 # MAIN
 
 # config
-default_semvar_bump=${DEFAULT_BUMP:-minor}
+default_semvar_bump=${DEFAULT_BUMP:-patch}
 with_v=${WITH_V:-false}
 release_branches=${RELEASE_BRANCHES:-master}
-custom_tag=${CUSTOM_TAG}
 source=${SOURCE:-.}
 dryrun=${DRY_RUN:-false}
-
-# KT - add tag_prefix
-tag_prefix=${TAG_PREFIX:-internal-}
 
 # Was the last merge a feature branch (check merge comment)
 if [[ "$(git show -n1 --merges --oneline | grep -c '/feature/')" -ge 1 ]]; then
@@ -321,8 +317,7 @@ echo "pre_release = $pre_release"
 git fetch --tags
 
 # get latest tag that looks like a semver (with or without v)
-#tag=$(git for-each-ref --sort=-v:refname --count=1 --format '%(refname)' refs/tags/[0-9]*.[0-9]*.[0-9]* refs/tags/v[0-9]*.[0-9]*.[0-9]* | cut -d / -f 3-)
-tag=$(git for-each-ref --sort=-v:refname --count=1 --format '%(refname)'  refs/tags/${tag_prefix}[0-9]*.[0-9]*.[0-9]* refs/tags/${tag_prefix}v[0-9]*.[0-9]*.[0-9]* | cut -d / -f 3-)
+tag=$(git for-each-ref --sort=-v:refname --count=1 --format '%(refname)' refs/tags/[0-9]*.[0-9]*.[0-9]* refs/tags/v[0-9]*.[0-9]*.[0-9]* | cut -d / -f 3-)
 
 tag_commit=$(git rev-list -n 1 $tag)
 
@@ -342,8 +337,6 @@ then
     tag=0.0.0
 else
     log=$(git log $tag..HEAD --pretty='%B')
-    # remove tag prefix
-    tag=${tag#"${tag_prefix}"}
 fi
 
 echo $log
@@ -366,24 +359,11 @@ then
 			new="v$new"
 	fi
 
-        # if not empty
-	if [ ! -z $tag_prefix ]
-	then
-			new="${tag_prefix}${new}"
-	fi
-
 	if $pre_release
 	then
 			new="$new-${commit:0:7}"
 	fi
 fi
-
-if [ ! -z $custom_tag ]
-then
-    new="$custom_tag"
-fi
-
-echo $new
 
 # set outputs
 echo ::set-output name=new_tag::$new

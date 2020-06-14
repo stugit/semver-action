@@ -1,6 +1,27 @@
 # action.yml
 name: 'semver-action'
+branding:
+  icon: 'tag'
+  color: 'blue'
 description: 'bump semantic version'
+inputs:
+  SOURCE:
+    description: 'The folder containing another repo that you want the semver tag added to.'
+    required: True
+  DEFAULT_BUMP:
+    description: 'major, minor or patch, the default is patch.'
+    required: false
+  DRY_RUN: 
+    description: 'Dry run.'
+    required: false
+  RELEASE_BRANCHES: 
+    description: 'Release branches.'
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  args:
+    - ${{ inputs.SOURCE }}
+    - ${{ inputs.DEFAULT_BUMP }}
+    - ${{ inputs.DRY_RUN }}
+    - ${{ inputs.RELEASE_BRANCHES }}
