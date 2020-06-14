@@ -4,29 +4,6 @@ branding:
   icon: 'tag'
   color: 'blue'
 description: 'bump semantic version'
-inputs:
-  SOURCE:
-    description: 'The folder containing another repo that you want the semver tag added to.'
-    required: True
-  DEFAULT_BUMP:
-    description: 'major, minor or patch, the default is patch.'
-    required: false
-  WITH_V: 
-    description: 'With "v" prefix.'
-    required: false
-  DRY_RUN: 
-    description: 'Dry run.'
-    required: false
-  RELEASE_BRANCHES: 
-    description: 'Release branches.'
-    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - --source ${{ inputs.SOURCE }}
-    - --default_bump ${{ inputs.DEFAULT_BUMP }}
-    - --with_v ${{ inputs.WITH_V }}
-    - --dry_run ${{ inputs.DRY_RUN }}
-    - --release_branches ${{ inputs.RELEASE_BRANCHES }}
-
