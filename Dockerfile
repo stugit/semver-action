@@ -2,6 +2,10 @@
 FROM ubuntu:18.04
 RUN apt update && apt install -y git curl jq
 
+
+COPY ./semver /semver
+RUN install ./semver /usr/local/bin
+
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
 RUN ["chmod", "+x", "/entrypoint.sh"]
