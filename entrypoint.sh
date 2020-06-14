@@ -3,7 +3,7 @@ echo "SOURCE = ${INPUT_SOURCE}"
 echo "DEFAULT_BUMP = ${INPUT_DEFAULT_BUMP}"
 echo "DRYRUN = ${INPUT_DRYRUN}"
 echo "RELEASE_BRANCHES = ${INPUT_RELEASE_BRANCHES}"
-echo "WITH_V= ${INPUT_WITH_V}"
+echo "WITH_V = ${INPUT_WITH_V}"
 
 
 function semver() {
@@ -291,11 +291,11 @@ function semver() {
 # MAIN
 
 # config
-default_semvar_bump=${DEFAULT_BUMP:-patch}
-with_v=${WITH_V:-false}
-release_branches=${RELEASE_BRANCHES:-master}
-source=${SOURCE:-.}
-dryrun=${DRY_RUN:-false}
+default_semvar_bump=${INPUT_DEFAULT_BUMP:-patch}
+with_v=${INPUT_WITH_V:-false}
+release_branches=${INPUT_RELEASE_BRANCHES:-master}
+source=${INPUT_SOURCE:-.}
+dryrun=${INPUT_DRY_RUN:-false}
 
 # Was the last merge a feature branch (check merge comment)
 if [[ "$(git show -n1 --merges --oneline | grep -c '/feature/')" -ge 1 ]]; then
