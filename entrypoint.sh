@@ -1,9 +1,9 @@
 #!/bin/bash -x
-echo "SOURCE = ${SOURCE}"
-echo "DEFAULT_BUMP = ${DEFAULT_BUMP}"
-echo "DRYRUN = ${DRYRUN}"
-echo "RELEASE_BRANCHES = ${RELEASE_BRANCHES}"
-echo "WITH_V= ${WITH_V}"
+echo "SOURCE = ${INPUT_SOURCE}"
+echo "DEFAULT_BUMP = ${INPUT_DEFAULT_BUMP}"
+echo "DRYRUN = ${INPUT_DRYRUN}"
+echo "RELEASE_BRANCHES = ${INPUT_RELEASE_BRANCHES}"
+echo "WITH_V= ${INPUT_WITH_V}"
 
 
 function semver() {

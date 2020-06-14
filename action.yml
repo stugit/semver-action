@@ -4,6 +4,18 @@ branding:
   icon: 'tag'
   color: 'blue'
 description: 'bump semantic version'
+inputs:
+  GITHUB_TOKEN:
+    required: true
+  WITH_V:
+    required: false
+    default: true
+  SOURCE:
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  args:
+    - ${{ inputs.GITHUB_TOKEN }}
+    - ${{ inputs.WITH_V }}
+    - ${{ inputs.SOURCE }}
