@@ -26,5 +26,6 @@ runs:
   args:
     - ${{ inputs.SOURCE }}
     - ${{ inputs.DEFAULT_BUMP }}
+    - ${{ inputs.WITH_V }}
     - ${{ inputs.DRY_RUN }}
     - ${{ inputs.RELEASE_BRANCHES }}
