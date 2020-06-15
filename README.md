@@ -46,7 +46,7 @@ RELEASE_BRANCHES: 'release1,release2'
 
 ### A git tag
 
-v1.0.1 or 1.0.1 or new_prefix_v1.0.1
+v1.0.1 or 1.0.1.1
 
 ## Example usage
 
